@@ -4,9 +4,10 @@
 	"private": true,
 	"dependencies": {
 		"artik-sdk": "1.2.1",
+		"onoff": "1.1.2",
 		"dotenv": "4.0.0"
   	},
 	"scripts": {
-		"start": "node eyeQ.js" 
+		"start": "node artik_cloud_light_ws.js" 
 	}
 }

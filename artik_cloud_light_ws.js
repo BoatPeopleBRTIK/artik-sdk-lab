@@ -1,25 +1,26 @@
+require('dotenv').config();
 var artik = require('artik-sdk');
-var auth_token = '';
-var device_id = '';
+var gpio = require('artik-sdk').gpio;
+var Gpio = require('onoff').Gpio;
+
+var auth_token = process.env.AUTH_TOKEN;
+var device_id = process.env.DEVICE_ID;
 var actions_led = process.env.ACTIONS_LED;
-
-var Gpio, led;
-if (actions_led) {
-    Gpio       = require('onoff').Gpio,
-    led        = new Gpio(actions_led, 'out');
-}
-
-device_id = process.env.DEVICE_ID;
-auth_token = process.env.AUTH_TOKEN;
-
-var conn = new artik.cloud(auth_token);
-
-console.log("Launching websocket client.")
-
 if (!device_id || !auth_token) {
     console.log("Either Device ID or Token not found in ENV");
     process.exit(-1);
 }
+
+var led;
+
+const name = artik.get_platform_name();
+console.log('Running on ' + name);
+if (name == 'Artik 710') {
+	led = new Gpio(actions_led, 'out');
+}
+
+console.log("Launching websocket client.")
+var conn = new artik.cloud(auth_token);
 
 conn.on('receive', function(message) {
     var msg = JSON.parse(message);
