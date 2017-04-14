@@ -18,7 +18,8 @@ if (name == 'Artik 710') {
 }
 
 var switchState = 0;
-var button  = new artik.gpio(actions_button, 'in', 'rising', switchState);
+var button = new artik.gpio(actions_button, 'button', 'in', 'rising', switchState);
+console.log("Button " + button.read());
 
 button.on('changed', function (value) {
 	switchState ^= 1;
