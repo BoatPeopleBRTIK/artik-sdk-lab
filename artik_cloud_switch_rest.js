@@ -17,14 +17,16 @@ if (name == 'Artik 710') {
 	actions_button = 30;
 }
 
-var button  = new artik.gpio(actions_button, 'in', 'both', 0);
+var switchState = 0;
+var button  = new artik.gpio(actions_button, 'in', 'rising', switchState);
 
 button.on('changed', function (value) {
+	switchState ^= 1;
  
-	console.log("button state: " + value);
+	console.log("button state: " + switchState);
 	
 	var message = JSON.stringify({
-		"state": value
+		"state": switchState
 	});
 	
 	cloud.send_message(device_id, message, function(response) {
