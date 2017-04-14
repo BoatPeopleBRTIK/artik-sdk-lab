@@ -1,6 +1,5 @@
 require('dotenv').config();
-var artik = require('artik-sdk');
-var Gpio = require('onoff').Gpio;
+const artik = require('artik-sdk');
 
 var device_id = process.env.SWITCH_DEVICE_ID;
 var auth_token = process.env.SWITCH_DEVICE_TOKEN;
@@ -18,14 +17,11 @@ if (name == 'Artik 710') {
 	actions_button = 30;
 }
 
-var button  = new Gpio(actions_button, 'in', 'both');
+var button  = new artik.gpio(actions_button, 'in', 'both', 0);
 
-button.watch( function (err, value) {
-	if (err) {
-		throw err;
-	}
+button.on('changed', function (value) {
  
-	console.log("button value: " + value);
+	console.log("button state: " + value);
 	
 	var message = JSON.stringify({
 		"state": value
@@ -35,7 +31,12 @@ button.watch( function (err, value) {
 		console.log("Send message - response: " + response);
 	});
 });
+
+button.request();
 	 
 process.on('SIGINT', function () {
-  button.unexport();
+	console.log('exiting');
+	button.release();
+	
+	process.exit(0);
 });
