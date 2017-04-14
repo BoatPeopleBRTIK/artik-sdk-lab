@@ -14,8 +14,6 @@ var actions_led;
 const name = artik.get_platform_name();
 console.log('Running on ' + name);
 if (name == 'Artik 710') {
-	//actions_led = artik.artik710.ARTIK_A710_GPIO_GPIO8;
-
 	actions_led = 28;
 }
 

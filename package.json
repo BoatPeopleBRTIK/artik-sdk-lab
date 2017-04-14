@@ -8,7 +8,7 @@
 		"dotenv": "4.0.0"
   	},
 	"scripts": {
-        "light": "node artik_cloud_light_ws.js",
-        "switch": "node artik_cloud_switch_rest.js"
+        "cloudLight": "node artik_cloud_light_ws.js",
+        "cloudSwitch": "node artik_cloud_switch_rest.js"
 	}
 }

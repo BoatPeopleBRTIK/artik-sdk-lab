@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 var artik = require('artik-sdk');
 var Gpio = require('onoff').Gpio;
@@ -10,7 +9,7 @@ if (!device_id || !auth_token) {
     console.log("Either Device ID or Token not found in ENV");
     process.exit(-1);
 }
-var cloud = artik.cloud(auth_token);
+var cloud = new artik.cloud(auth_token);
 
 var actions_button;
 const name = artik.get_platform_name();
