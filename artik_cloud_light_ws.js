@@ -2,8 +2,9 @@ require('dotenv').config();
 var artik = require('artik-sdk');
 var Gpio = require('onoff').Gpio;
 
-var auth_token = process.env.AUTH_TOKEN;
-var device_id = process.env.DEVICE_ID;
+var device_id = process.env.LED_DEVICE_ID;
+var auth_token = process.env.LED_DEVICE_TOKEN;
+
 if (!device_id || !auth_token) {
     console.log("Either Device ID or Token not found in ENV");
     process.exit(-1);
@@ -50,3 +51,6 @@ function setLED (value) {
     });
 }
 
+process.on('SIGINT', function () {
+	led.unexport();
+});
