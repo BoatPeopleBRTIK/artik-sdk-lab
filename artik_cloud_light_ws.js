@@ -16,7 +16,7 @@ if (name == 'Artik 710') {
 	actions_led = artik.platform.artik710.ARTIK_A710_GPIO_GPIO8;
 }
 
-val led = new Gpio(actions_led, 'out');
+var led = new Gpio(actions_led, 'out');
 
 console.log("Launching websocket client.")
 var conn = new artik.cloud(auth_token);
