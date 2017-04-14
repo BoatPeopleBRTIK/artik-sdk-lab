@@ -1,5 +1,6 @@
 require('dotenv').config();
 var artik = require('artik-sdk');
+var Gpio = require('onoff').Gpio;
 
 var auth_token = process.env.AUTH_TOKEN;
 var device_id = process.env.DEVICE_ID;
@@ -12,14 +13,12 @@ var actions_led;
 const name = artik.get_platform_name();
 console.log('Running on ' + name);
 if (name == 'Artik 710') {
-	actions_led = artik.artik710.ARTIK_A710_GPIO_GPIO8;
+	//actions_led = artik.artik710.ARTIK_A710_GPIO_GPIO8;
+
+	actions_led = 28;
 }
 
-var Gpio, led;
-if (actions_led) {
-    Gpio       = require('onoff').Gpio,
-    led        = new Gpio(actions_led, 'out');
-}
+var led  = new Gpio(actions_led, 'out');
 
 console.log("Launching websocket client.")
 var conn = new artik.cloud(auth_token);
@@ -45,11 +44,9 @@ console.log("Starting websocket connection");
 conn.websocket_open_stream(auth_token, device_id, false);
 
 function setLED (value) {
-    if (actions_led) {
-        led.writeSync( (value?1:0) , function(error) {
-            if(error) throw error;
-            console.log('setLED: wrote ' + value );
-        });
-    }
+    led.writeSync( (value) , function(error) {
+        if(error) throw error;
+        console.log('setLED: wrote ' + value );
+    });
 }
 
