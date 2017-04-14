@@ -1,0 +1,12 @@
+{
+	"name": "artik-lab",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"artik-sdk": "1.2.1",
+		"dotenv": "4.0.0"
+  	},
+	"scripts": {
+		"start": "node eyeQ.js" 
+	}
+}

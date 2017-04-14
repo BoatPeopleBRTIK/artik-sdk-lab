@@ -1,7 +1,6 @@
 var artik = require('artik-sdk');
 var auth_token = '';
 var device_id = '';
-var use_se = true;
 var actions_led = process.env.ACTIONS_LED;
 
 var Gpio, led;
@@ -15,7 +14,7 @@ auth_token = process.env.AUTH_TOKEN;
 
 var conn = new artik.cloud(auth_token);
 
-console.log("Launch websocket client after SDR registration.")
+console.log("Launching websocket client.")
 
 if (!device_id || !auth_token) {
     console.log("Either Device ID or Token not found in ENV");
@@ -23,24 +22,24 @@ if (!device_id || !auth_token) {
 }
 
 conn.on('receive', function(message) {
-        var msg = JSON.parse(message);
+    var msg = JSON.parse(message);
     console.log("Message from cloud " + message);
-        if (msg.type == 'action') {
-            if (msg.data.actions[0].name == 'setOn') {
-                console.log('Received Action setOn');
-                setLED(1);
-		conn.websocket_send_message("{\"state\":true}");
-            }
-            if (msg.data.actions[0].name == 'setOff') {
-                console.log('Received Action setOff');
-                setLED(0);
-		conn.websocket_send_message("{\"state\":false}");
-            }
+    if (msg.type == 'action') {
+        if (msg.data.actions[0].name == 'setOn') {
+            console.log('Received Action setOn');
+            setLED(1);
+            conn.websocket_send_message("{\"state\":true}");
         }
+        if (msg.data.actions[0].name == 'setOff') {
+            console.log('Received Action setOff');
+            setLED(0);
+            conn.websocket_send_message("{\"state\":false}");
+        }
+    }
 });
 
-console.log("Starting secure websocket connection");
-conn.websocket_open_stream(auth_token, device_id, use_se);
+console.log("Starting websocket connection");
+conn.websocket_open_stream(auth_token, device_id, false);
 
 function setLED (value) {
     if (actions_led) {
