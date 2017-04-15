@@ -10,6 +10,7 @@
 		"light": "node artik_light.js",
 		"switch": "node artik_switch.js",
         "cloudLight": "node artik_cloud_light_ws.js",
-        "cloudSwitch": "node artik_cloud_switch_rest.js"
-	}
+        "cloudSwitch": "node artik_cloud_switch_rest.js",
+        "cloudTempMonitor": "node artik_cloud_temp_monitor_rest.js"
+    }
 }
