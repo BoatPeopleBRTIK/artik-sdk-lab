@@ -4,9 +4,12 @@
 	"private": true,
 	"dependencies": {
 		"artik-sdk": "1.2.1",
-		"dotenv": "4.0.0"
-  	},
+		"dotenv":    "4.0.0",
+		"sleep":     "5.1.1"
+	},
 	"scripts": {
+		"light": "node artik_light.js",
+		"switch": "node artik_switch.js",
         "cloudLight": "node artik_cloud_light_ws.js",
         "cloudSwitch": "node artik_cloud_switch_rest.js"
 	}
