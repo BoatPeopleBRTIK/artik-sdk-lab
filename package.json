@@ -4,8 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"artik-sdk": "1.2.1",
-		"dotenv":    "4.0.0",
-		"sleep":     "5.1.1"
+		"dotenv":    "4.0.0"
 	},
 	"scripts": {
 		"light": "node artik_light.js",

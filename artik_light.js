@@ -1,6 +1,5 @@
 require('dotenv').config();
 const artik = require('artik-sdk');
-var sleep = require('sleep');
 
 var device_id = process.env.LED_DEVICE_ID;
 var auth_token = process.env.LED_DEVICE_TOKEN;
@@ -30,10 +29,10 @@ function toggleLED () {
 }
 
 
-while(1) {
-	toggleLED();
-	sleep.sleep(2);
-}
+// Toggle every 2 seconds
+setInterval(function() { 
+	toggleLED(); 
+}, 2000);
 
 process.on('SIGINT', function () {
 	console.log('exiting');
