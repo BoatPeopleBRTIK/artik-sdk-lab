@@ -25,7 +25,7 @@ function toggleLED () {
 	led.write(ledState);
 	led.release();
 	
-	console.log('setLED( ' + actions_led + ') value: ' + value);
+	console.log('setLED( ' + actions_led + ') value: ' + ledState);
 	ledState ^= 1;
 }
 

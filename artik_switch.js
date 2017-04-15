@@ -27,14 +27,13 @@ function toggleLED () {
 	led.write(ledState);
 	led.release();
 	
-	console.log('setLED( ' + actions_led + ') value: ' + value);
+	console.log('setLED( ' + actions_led + ') value: ' + ledState);
 	ledState ^= 1;
 }
 
 button.on('changed', function (value) {
-	switchState ^= 1;
- 
-	console.log("button state: " + switchState);
+	console.log("button pressed");
+	toggleLED();
 });
 
 button.request();
