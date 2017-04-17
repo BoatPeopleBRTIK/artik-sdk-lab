@@ -47,7 +47,36 @@ TEMP_SENSOR_DEVICE_TOKEN=
 
 - Save the file.
 
-## More examples
+## Labs
+
+### Lab 1 - Toggle LED every 2 seconds
+
+In this lab, a configured LED will be toggled on/off every 2 seconds. This lab exercises the [artik-sdk GPIO API](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/GPIO_README.md), specifically when configured in output mode.
+
+Run `npm run light`
+
+### Lab 2 - Toggle LED when Button is pressed
+
+In this lab, a configured Switch will be used to toggle on/off a LED. This lab exercises the [artik-sdk GPIO API](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/GPIO_README.md), in both input and output modes.
+
+Run `npm run switch`
+
+### Lab 3 - Connect Button to ARTIK Cloud
+
+In this lab, a configured Switch will be connected to ARTIK Cloud. This lab exercises the [artik-sdk ARTIK Cloud connectivity](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/CLOUD_README.md), specifically using the Cloud HTTP/REST APIs.
+
+Run `npm run cloudSwitch`
+
+### Lab 4 - Control LEDs remotely via ARTIK Cloud
+
+In this lab, a configured LED will be controlled using ARTIK Cloud. This lab exercises the [artik-sdk ARTIK Cloud connectivity](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/CLOUD_README.md), specifically using the Cloud WebSocket APIs.
+
+
+Run `npm run cloudLight`
+
+### Lab 5 - Connect Temperature Sensor to ARTIK Cloud
+
+In this lab, a temperature sensor will be connected to ARTIK Cloud. This lab exercises the [artik-sdk Sensors API](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/SENSOR_README.md) and the [artik-sdk ARTIK Cloud connectivity](https://github.com/SamsungARTIK/artik-sdk/blob/master/doc/CLOUD_README.md), specifically using the Cloud HTTP/REST APIs.
 
 
 More about ARTIK Cloud
