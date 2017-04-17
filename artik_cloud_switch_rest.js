@@ -1,6 +1,3 @@
-require('dotenv').config();
-const artik = require('artik-sdk');
-
 /*
  * Copyright (C) 2017 Samsung Electronics Co., Ltd.
  *
@@ -17,6 +14,10 @@ const artik = require('artik-sdk');
  * limitations under the License.
  */
 
+require('dotenv').config();
+const artik = require('artik-sdk');
+const settings = require('./settings')
+
 var device_id = process.env.SWITCH_DEVICE_ID;
 var auth_token = process.env.SWITCH_DEVICE_TOKEN;
 
@@ -26,13 +27,7 @@ if (!device_id || !auth_token) {
 }
 var cloud = new artik.cloud(auth_token);
 
-var actions_button;
-const name = artik.get_platform_name();
-console.log('Running on ' + name);
-if (name == 'Artik 710') {
-	actions_button = 30;
-}
-
+var actions_button = settings.button;
 var switchState = 0;
 var button = new artik.gpio(actions_button, 'button', 'in', 'rising', switchState);
 console.log("Button " + button.read());

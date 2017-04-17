@@ -17,6 +17,7 @@
 
 require('dotenv').config();
 const artik = require('artik-sdk');
+const settings = require('./settings')
 
 var device_id = process.env.LED_DEVICE_ID;
 var auth_token = process.env.LED_DEVICE_TOKEN;
@@ -26,13 +27,7 @@ if (!device_id || !auth_token) {
     process.exit(-1);
 }
 
-var actions_led;
-const name = artik.get_platform_name();
-console.log('Running on ' + name);
-if (name == 'Artik 710') {
-	actions_led = 28;
-}
-
+var actions_led = settings.led;
 var led  = new artik.gpio(actions_led, 'led', 'out', 'none', 0);
 
 console.log("Launching websocket client.")

@@ -16,6 +16,7 @@
 
 require('dotenv').config();
 const artik = require('artik-sdk');
+const settings = require('./settings')
 
 var device_id = process.env.SWITCH_DEVICE_ID;
 var auth_token = process.env.SWITCH_DEVICE_TOKEN;
@@ -26,13 +27,8 @@ if (!device_id || !auth_token) {
 }
 var cloud = new artik.cloud(auth_token);
 
-var actions_button, actions_led;
-const name = artik.get_platform_name();
-console.log('Running on ' + name);
-if (name == 'Artik 710') {
-	actions_button = 30;
-	actions_led = 28;
-}
+var actions_button = settings.button, 
+	actions_led = settings.led;
 
 var button = new artik.gpio(actions_button, 'button', 'in', 'rising', 0);
 var led  = new artik.gpio(actions_led, 'led', 'out', 'none', 0);
