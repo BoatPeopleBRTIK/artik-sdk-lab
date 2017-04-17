@@ -5,13 +5,14 @@ The labs in this repository show how to build applications on ARTIK modules usin
 ## Prerequisites
 * ARTIK Module (530 or 710)
 * [ARTIK SDK](https://developer.artik.io/documentation/api/index.html)
-* [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
+* npm - `sudo dnf install npm`
 * git - `sudo dnf install git`
 
 ## Setup / Installation:
 
-- Clone this git repository in your module.
-- Run `npm install` to install the dependencies - artik-sdk
+- Clone this git repository in your module - `git clone https://github.com/SamsungARTIK/artik-sdk-lab.git`
+- Change directory `cd artik-sdk-lab`
+- Run `npm install` to install the node dependencies specified in `package.json` of the repository.
 
 ### Set up at ARTIK Cloud
 
