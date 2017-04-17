@@ -4,9 +4,9 @@ The labs in this repository show how to build applications on ARTIK modules usin
 
 ## Prerequisites
 * ARTIK Module (530 or 710)
-* ARTIK SDK. Follow [these instructions](https://developer.artik.io/documentation/api/index.html)
+* [ARTIK SDK](https://developer.artik.io/documentation/api/index.html)
 * [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
-* git
+* git - `sudo dnf install git`
 
 ## Setup / Installation:
 
@@ -18,15 +18,18 @@ The labs in this repository show how to build applications on ARTIK modules usin
 - Follow [these instructions](https://developer.artik.cloud/documentation/tools/web-tools.html#create-an-artik-cloud-account) to sign up and create an account on ARTIK Cloud, if you haven't already created one on artik.io.
 
 - Create devices of type:
-* ARTIK Cloud Light
-* ARTIK Cloud Switch
-* ARTIK Cloud Temperature Monitor
+  * ARTIK Cloud Light - com.demo.artik.light
+  * ARTIK Cloud Switch - com.demo.artik.button
+  * ARTIK Cloud Temperature Monitor - com.demo.artik.tempmonitor
 
-![Create Device](./img/create_device.png)
+![Create Device 1](./img/create_device_1.png)
+
+![Create Device 2](./img/create_device_2.png)
+
 
 - For each device, generate a device token:
 
-![Generate Device Token](./img/device_token.png)
+![Generate Device Token](./img/generate_device_token.png)
 
 - Make a note of the device ID and device token for each device you registered.
 
