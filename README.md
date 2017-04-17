@@ -2,18 +2,6 @@
 
 The labs in this repository show how to build applications on ARTIK modules using the node.js [artik-sdk](https://developer.artik.io/documentation/api/index.html). 
 
-## Demo
-
-- Run the Android app. 
-- Click Login button.
-- Sign in or sign up on the following screen:
-
-![GitHub Logo](./img/screenshot-signin-signup.png)
-
-- Receive the access token after login succeeds:
-
-![GitHub Logo](./img/screenshot-receive-accesstoken.png)
-
 ## Prerequisites
 * ARTIK Module (530 or 710)
 * ARTIK SDK. Follow [these instructions](https://developer.artik.io/documentation/api/index.html)
@@ -27,11 +15,20 @@ The labs in this repository show how to build applications on ARTIK modules usin
 
 ### Set up at ARTIK Cloud
 
-Follow [these instructions](https://developer.artik.cloud/documentation/tools/web-tools.html#create-an-artik-cloud-account) to sign up and create an account on ARTIK Cloud, if you haven't already created one on artik.io.
+- Follow [these instructions](https://developer.artik.cloud/documentation/tools/web-tools.html#create-an-artik-cloud-account) to sign up and create an account on ARTIK Cloud, if you haven't already created one on artik.io.
 
+- Create devices of type:
+* ARTIK Cloud Light
+* ARTIK Cloud Switch
+* ARTIK Cloud Temperature Monitor
 
+![Create Device](./img/create_device.png)
 
-Make a note of the device ID and device token for each device you registered.
+- For each device, generate a device token:
+
+![Generate Device Token](./img/device_token.png)
+
+- Make a note of the device ID and device token for each device you registered.
 
 ### Set up your .env file
 
