@@ -3,10 +3,13 @@
 The labs in this repository show how to build applications on ARTIK modules using the node.js [artik-sdk](https://developer.artik.io/documentation/api/index.html). 
 
 ## Prerequisites
+The following are required in order to run the labs. 
 * ARTIK Module (530 or 710)
 * [ARTIK SDK](https://developer.artik.io/documentation/api/index.html)
 * npm - `sudo dnf install npm`
 * git - `sudo dnf install git`
+
+Note: The commands can be run either within a ssh session or in a serial connection.
 
 ## Setup / Installation:
 
