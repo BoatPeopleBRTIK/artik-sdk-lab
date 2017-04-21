@@ -39,7 +39,9 @@ setInterval(function() {
     	var temperature = temp_sensor.get_fahrenheit();
         console.log("Function 'get_fahrenheit' : " + temperature + " F");
     	var message = JSON.stringify({
-    		"temp": temperature
+            "motor_state": {
+                "temp": temperature
+            }
     	});
     	
     	cloud.send_message(device_id, message, function(response) {
